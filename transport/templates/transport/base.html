@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Автопарк{% endblock %}</title>
+
+    <!-- Подключаем Bootstrap из Django Admin -->
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+
+    <!-- Подключаем иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Дополнительные стили -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .admin-header {
+            background: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .btn-primary {
+            background: #007bff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">🚗 Автопарк</a>
+            <div>
+                <a class="btn btn-outline-light" href="/admin/">Админка</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
