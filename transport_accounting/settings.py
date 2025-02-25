@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'transport',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -76,14 +77,11 @@ WSGI_APPLICATION = 'transport_accounting.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'transport_db',
-        'USER': 'ynikolaenko',
-        'PASSWORD': '7tKrum01',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
+
 
 
 # Password validation
@@ -126,3 +124,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"  # После входа отправляет на главную страницу
+LOGOUT_REDIRECT_URL = "/login/"  # После выхода отправляет на страницу входа
